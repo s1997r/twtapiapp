@@ -21,7 +21,7 @@ def get_data(query):
         twitter_data = tmp_data
         data.append(twitter_data)
         final_data = {"data":data}
-    return final_data
+    return jsonify(final_data)
 
 @app.route('/<string:name>',methods = ['GET','POST'])
 def get_user_details(name:str):

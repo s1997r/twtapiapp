@@ -20,12 +20,13 @@ def get_data(query):
                     "username":tweet.user.username,"tweet_text":tweet.content}
         twitter_data = tmp_data
         data.append(twitter_data)
-    return data
+        final_data = {"data":data}
+    return final_data
 
 @app.route('/<string:name>',methods = ['GET','POST'])
 def get_user_details(name:str):
     twitter_data=get_data(name)
-    return jsonify(twitter_data)
+    return twitter_data
 
 if '__name__'== '__main__':
     app.run()

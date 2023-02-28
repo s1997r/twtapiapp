@@ -25,7 +25,7 @@ def get_data(query):
 @app.route('/<string:name>',methods = ['GET','POST'])
 def get_user_details(name:str):
     twitter_data=get_data(name)
-    return twitter_data
+    return jsonify(twitter_data)
 
 if '__name__'== '__main__':
     app.run()

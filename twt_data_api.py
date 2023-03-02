@@ -31,7 +31,7 @@ def welcome():
 
 
 @app.route('/<string:name>',methods = ['GET','POST'])
-def get_user_details(name):
+def get_user_details(name:str):
     twitter_data=get_data(name)
     return jsonify(twitter_data)
 

@@ -24,8 +24,8 @@ def get_data(query):
         final_data = {"data":data}
     return final_data
 
-@app.route('/<string:name>',methods = ['GET','POST'])
-def get_user_details(name:str):
+@app.route('/',methods = ['GET','POST'])
+def get_user_details(name):
     twitter_data=get_data(name)
     return jsonify(twitter_data)
 

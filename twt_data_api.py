@@ -17,7 +17,8 @@ def get_data(query):
             break
         print(i, tweet, tweet.date, tweet.user.username, tweet.content)
         tmp_data = {"index_count":i,"tweet_link":tweet.url,
-                    "username":tweet.user.username,"tweet_text":tweet.content}
+                    "username":tweet.user.username,"tweet_text":tweet.content,"date":tweet.date.date(),
+                    "time":tweet.date.time(),"likes":tweet.likeCount}
         twitter_data = tmp_data
         data.append(twitter_data)
         final_data = {"data":data}

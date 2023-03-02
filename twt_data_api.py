@@ -4,6 +4,7 @@
 from flask import Flask, jsonify
 #from flask import request
 import snscrape.modules.twitter as sntwitter
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -28,10 +29,11 @@ def get_data(query):
 def welcome():
     return jsonify({'message': 'Please Provide input'})
 
-@app.route('/<string:name>',methods = ['GET','POST'])
-def get_user_details(name:str):
-    name = urllib.parse.unquote(name)
-    twitter_data=get_data(name)
+
+@app.route('/<path:name>', methods=['GET', 'POST'])
+def get_user_details(name):
+    decoded_name = urllib.parse.unquote(name)
+    twitter_data = get_data(decoded_name)
     return jsonify(twitter_data)
 
 if '__name__'== '__main__':

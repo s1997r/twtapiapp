@@ -18,16 +18,12 @@ def get_data(query):
             break
         print(i, tweet, tweet.date, tweet.user.username, tweet.content)
         tmp_data = {"index_count":i,"tweet_link":tweet.url,
-                    "username":tweet.user.username,"tweet_text":tweet.content,"date":tweet.date.date(),
-                    "time":tweet.date.time(),"likes":tweet.likeCount}
+                    "username":tweet.user.username,"tweet_text":tweet.content,"date":tweet.date,
+                    "likes":tweet.likeCount}
         twitter_data = tmp_data
         data.append(twitter_data)
         final_data = {"data":data}
     return final_data
-
-@app.route('/', methods=['GET'])
-def welcome():
-    return jsonify({'message': 'Please Provide input'})
 
 
 @app.route('/<string:name>',methods = ['GET','POST'])

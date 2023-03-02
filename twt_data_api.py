@@ -30,10 +30,9 @@ def welcome():
     return jsonify({'message': 'Please Provide input'})
 
 
-@app.route('/<path:name>', methods=['GET', 'POST'])
+@app.route('/<string:name>',methods = ['GET','POST'])
 def get_user_details(name):
-    decoded_name = urllib.parse.unquote(name)
-    twitter_data = get_data(decoded_name)
+    twitter_data=get_data(name)
     return jsonify(twitter_data)
 
 if '__name__'== '__main__':

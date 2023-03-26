@@ -15,7 +15,8 @@ def get_data(category, time):
     # Filter data based on input parameters
     filtered_df = df[(df['location_name'] == category)]
     # Convert filtered data to JSON format and return as a response
-    return jsonify(filtered_df.to_dict(orient='records'))
+    final_data = {"data":jsonify(filtered_df.to_dict(orient='records'))}
+    return final_data
 
 if __name__ == "__main__":
     app.run()

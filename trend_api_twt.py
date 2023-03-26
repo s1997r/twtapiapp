@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/<string:category>/<string:time>')
 def get_data(category, time):
-    #time = quote(time)
+    time = quote(time)
     # Load data from CSV file into Pandas DataFrame
     sheet_id = "1rSzgHtvNEB17B0hoP65QiH15qOw_Cu_4vvyijWSkTCU"
     sheet_name = time

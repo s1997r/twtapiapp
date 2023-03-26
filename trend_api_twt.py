@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 
-@app.route('/<string:category>/<string:time>')
+
 def get_data(category, time):
     time = quote(time)
     # Load data from CSV file into Pandas DataFrame
@@ -18,6 +18,11 @@ def get_data(category, time):
     data = filtered_df.to_dict(orient='records')
     final_data = {"data": data}
     return final_data
+
+@app.route('/<string:category>/<string:time>')
+def get_trend_details(category, time):
+    twitter_trend_data=get_data(category, time)
+    return jsonify(twitter_trend_data)
 
 if __name__ == "__main__":
     app.run()

@@ -14,8 +14,13 @@ def get_data(category, time):
     df = pd.read_csv(url)
     # Filter data based on input parameters
     filtered_df = df[(df['location_name'] == category)]
+    data_list=[]
+    for index, row in filtered_df.iterrows():
+        tmp_data = {"trend_name":row['trend_name'],"trend_url":row['trend_url'],"trend_volume":row['tweet_volume']}
+        data_list.append(tmp_data)
+    #final_data = {"data":data_list}
     # Convert filtered data to JSON format and return as a response
-    data = filtered_df.to_dict(orient='records')
+    #data = filtered_df.to_dict(orient='records')
     final_data = {"data": data}
     return final_data
 

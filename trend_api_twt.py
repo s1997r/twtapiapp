@@ -21,7 +21,7 @@ def get_data(category, time):
     #final_data = {"data":data_list}
     # Convert filtered data to JSON format and return as a response
     #data = filtered_df.to_dict(orient='records')
-    final_data = {"data": data}
+    final_data = {"data": data_list}
     return final_data
 
 @app.route('/<string:category>/<string:time>')
